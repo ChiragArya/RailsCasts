@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="AngularCasts">
+<head>
+  <title>AngularCasts</title>
+  <link href="//releases.flowplayer.org/5.4.0/skin/minimalist.css" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <script src="//releases.flowplayer.org/5.4.0/flowplayer.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>	
+
+	<form>
+    	<label ng-repeat="screencast in screencasts" ng-click="showScreencast(screencast)">Search</label>
+    	<input type="textarea" placeholder="Search Your Videos Here" ng-show="selectedScreencast"/>
+    	<h2>{{selectedScreencast.title}}</h2>
+		    <p>{{selectedScreencast.summary}}</p>
+	</form>
+
+</header>
+
+<%= yield %>
+
+</body>
+</html>
